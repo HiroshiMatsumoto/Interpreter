@@ -1,4 +1,4 @@
-# Writing Interpreter in GO
+# Interpreter Monkey
 
 ## Lexical Parser
 
