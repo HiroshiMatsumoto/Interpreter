@@ -111,7 +111,7 @@ func TestReturnStatemnet(t *testing.T) {
 		}
 
 		if returnStmt.TokenLiteral() != "return" {
-			t.Errorf("returnStmt.TokenLIteral not 'return', got %q", returnStmt.TokenLiteral())
+			t.Errorf("returnStmt.TokenLiteral not 'return', got %q", returnStmt.TokenLiteral())
 		}
 	}
 }
