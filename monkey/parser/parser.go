@@ -169,6 +169,9 @@ func (p *Parser) noPrefixParseFnError(t token.TokenType) {
 }
 
 func (p *Parser) parseExpression(precedence int) ast.Expression {
+	// Vaugha Pratt's Top Down Operator Precedence
+	// https://tdop.github.io/
+
 	// prefix parse
 	prefix := p.prefixParseFns[p.curToken.Type]
 	if prefix == nil {
