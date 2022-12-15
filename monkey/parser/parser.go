@@ -177,7 +177,7 @@ func (p *Parser) parseExpression(precedence int) ast.Expression {
 	leftExp := prefix()
 
 	// infix parse
-	for !p.peekTokenIs(token.SEMICOLON) && precedence < p.peekPrecedecen() {
+	for !p.peekTokenIs(token.SEMICOLON) && precedence < p.peekPrecedence() {
 		infix := p.infixParseFns[p.peekToken.Type]
 		if infix == nil {
 			return leftExp
@@ -240,7 +240,7 @@ func (p *Parser) parseIntegerLiteral() ast.Expression {
 	return lit
 }
 
-func (p *Parser) peekPrecedecen() int {
+func (p *Parser) peekPrecedence() int {
 	// returns p.peekToken priority level
 	if p, ok := precedences[p.peekToken.Type]; ok {
 		return p
