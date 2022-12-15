@@ -176,15 +176,15 @@ func (p *Parser) parseExpression(precedence int) ast.Expression {
 	}
 	leftExp := prefix()
 
-	// infix parse
+	// infix parse: loop not if seimcolon or lesser priority token exists
 	for !p.peekTokenIs(token.SEMICOLON) && precedence < p.peekPrecedence() {
 		infix := p.infixParseFns[p.peekToken.Type]
 		if infix == nil {
 			return leftExp
 		}
 		p.nextToken()
+		// passing returned value from prefix parse: leftExp
 		leftExp = infix(leftExp)
-
 	}
 	return leftExp
 }
